@@ -1,16 +1,18 @@
 function Get-Airport {
-	param (
+    [CmdletBinding()]
+    param (
+        [Parameter(Position = 0, mandatory = $true)]    
         [string]$City
     )
 
     switch ($City) {
         "Raleigh" {
             @{
-                Name = "Raleigh-Durham International Airport"
-                Code = "RDU"
-                Website = "https://www.rdu.com"
+                Name        = "Raleigh-Durham International Airport"
+                Code        = "RDU"
+                Website     = "https://www.rdu.com"
                 PhoneNumber = "919-840-2123"
-                Airlines = @(
+                Airlines    = @(
                     'Delta',
                     'Southwest',
                     'Alaska Airlines',
@@ -21,16 +23,17 @@ function Get-Airport {
                     'JetBlue',
                     'Spirit',
                     'United'
-                    )
+                )
+                Awards = ""
             }
         }
         "Phoenix" {
             @{
-                Name = "Phoenix Sky Harbor International Airport"
-                Code = "PHX"
-                Website = "https://www.skyharbor.com"
+                Name        = "Phoenix Sky Harbor International Airport"
+                Code        = "PHX"
+                Website     = "https://www.skyharbor.com"
                 PhoneNumber = "602-273-3300"
-                Airlines = @(
+                Airlines    = @(
                     'Advanced Air',
                     'Air Canada',
                     'Alaska Airlines',
@@ -48,8 +51,12 @@ function Get-Airport {
                     'United',
                     'Volaris',
                     'WestJet'
-                    )
+                )
+                Awards = ""
             }
+        }
+        Default {
+            Throw "Try another city! I can't find that one."
         }
     }
 }

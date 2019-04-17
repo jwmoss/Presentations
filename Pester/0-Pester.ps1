@@ -13,4 +13,5 @@ icacls $modulePath /reset
 icacls $modulePath /grant Administrators:'F' /inheritance:d /T
 Remove-Item -Path $modulePath -Recurse -Force -Confirm:$false
 
+## Install Pester from PS Gallery
 Install-Module Pester

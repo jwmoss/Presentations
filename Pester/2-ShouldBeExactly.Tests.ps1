@@ -5,9 +5,10 @@ Clear-Host
 Describe -Name "Airport Code" -Fixture {
     
     $Actual = Get-Airport -City "Raleigh"
+    $Expected = "RDU"
 
     It -Name "Raleigh Code is always uppercase" -Test {
-        $Actual.Code | Should -BeExactly "RDU"
+        $Actual.Code | Should -BeExactly $Expected
     }
 
     It -Name "Raleigh Code is always uppercase" -Test {

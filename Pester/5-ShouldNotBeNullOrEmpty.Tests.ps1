@@ -4,8 +4,8 @@ Clear-Host
 
 Describe -Name "Null or Empty Tests" -Fixture {
 
-    It -Name "Empty or Null" -Test {
-        Get-Airport -City "New York" | Should -BeNullOrEmpty
+    It -Name "RDU doesn't have any awards" -Test {
+        (Get-Airport -City "Raleigh").Awards | Should -BeNullOrEmpty
     }
     
 }

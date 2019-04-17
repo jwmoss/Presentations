@@ -3,7 +3,6 @@
 Clear-Host
 
 $Kevin = [PSCustomObject]@{
-    Name                = 'Kevin Laux'
     Age                 = 32
     KnowsPowerShell     = $true
     Languages           = 'English'
@@ -11,7 +10,6 @@ $Kevin = [PSCustomObject]@{
 }
 
 $Jonathan = [PSCustomObject]@{
-    Name                = 'Jonathan Moss'
     Age                 = 31
     KnowsPowerShell     = $true
     Languages           = 'English'
@@ -19,7 +17,6 @@ $Jonathan = [PSCustomObject]@{
 }
 
 $Mike = [PSCustomObject]@{
-    Name                = 'Mike Kanakos'
     Age                 = 49
     KnowsPowerShell     = $true
     Languages           = 'English'
