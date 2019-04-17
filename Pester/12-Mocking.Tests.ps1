@@ -42,3 +42,19 @@ Describe -Name "Get-Airport tests" -Fixture {
     }
     
 }
+
+Describe -Name "Date test" -Fixture {
+    
+    Mock Get-Culture { }
+
+    Mock -CommandName Get-Culture -MockWith {
+        [PSCustomObject]@{
+            Name = "es"
+            DisplayName = "Spanish"
+        }
+    }
+
+    It -Name "Get-Culture should return spanish" -Test {
+        (Get-Culture).DisplayName | Should -Be "Spanish"
+    }
+}
