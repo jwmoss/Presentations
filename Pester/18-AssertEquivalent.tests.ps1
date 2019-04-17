@@ -1,4 +1,5 @@
 ## Show off Assert module from @nohwnd
+## Compare 2 objects
 
 Clear-Host
 
@@ -16,15 +17,24 @@ $Jonathan = [PSCustomObject]@{
     PowershellExperienceInYears = 2
 }
 
-$Mike = [PSCustomObject]@{
-    Age                 = 49
-    KnowsPowerShell     = $true
-    Languages           = 'English'
-    PowershellExperienceInYears = 4
+## Using Pester
+
+Describe -Name "Compare 2 objects" -Fixture {
+    
+    It -Name "age" -Test {
+        $Jonathan.age | Should -be $Kevin.Age
+    }
+
+    It -Name "powershell" -Test {
+        $Jonathan.KnowsPowerShell | Should -be $Kevin.KnowsPowerShell
+    }
+
+    It -Name "languages" -Test {
+        $Jonathan.Languages | Should -be $Kevin.Languages
+    }
+
 }
 
-Assert-Equivalent -Actual $Jonathan -Expected $Kevin -Verbose
-Assert-Equivalent -Actual $Jonathan -Expected $Mike -Verbose
+## Using Assert module
 
-
-$jonathan.Age | Assert-Equal $Kevin.Age
+Assert-Equivalent -Actual $Jonathan -Expected $Kevin
