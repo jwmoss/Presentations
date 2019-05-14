@@ -73,7 +73,7 @@ $b = foreach ($item in 1..10000) {
 ## .NET
 
 Measure-Command -Expression {
-    $c = [System.Collections.Generic.List[psobject]]@(1..10000)
+    $c = [System.Collections.Generic.List[object]]@(1..10000)
 } | Select-Object @{n='Test';e={ 'Generic List' }},TotalMilliseconds
 
 ## https://www.reddit.com/r/PowerShell/comments/8ecvbz/arrays_and_the_assignment_operator/dxud3q9?utm_source=share&utm_medium=web2x
