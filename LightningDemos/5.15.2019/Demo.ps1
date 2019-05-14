@@ -46,37 +46,42 @@ Get-ADUser @params
 
 ## Baaaad
 
-$bad = Measure-Command -Expression {
-
-    $Numbers = 1..10000
-
+Measure-Command -Expression {
     $a = @()
-    foreach ($item in $Numbers) {
-        $a += $item
-    }
-
+    
+    foreach ($item in 1..10000) {
+    ## completely rebuilding the array on each loop
+    $a += $item
 }
-
+} | Select-Object @{n='Test';e={ 'Array' }},TotalMilliseconds
 
 ## Better
 
-$better = Measure-Command -Expression {
+Measure-Command -Expression {
 
-    $Numbers = 1..10000
-
-    $b = foreach ($item in $Numbers) {
-        $item
-    }
+## make the loop the value of the array
+$b = foreach ($item in 1..10000) {
+    ## return each result to $b 
+    $item
 }
+
+} | Select-Object @{n='Test';e={ 'Array eq ForEach' }},TotalMilliseconds
+
 
 ## Best
 
-$Best = Measure-Command -Expression {
+## .NET
 
-    $Numbers = 1..10000
+Measure-Command -Expression {
+    $c = [System.Collections.Generic.List[psobject]]@(1..10000)
+} | Select-Object @{n='Test';e={ 'Generic List' }},TotalMilliseconds
 
-    $c = [System.Collections.Generic.List[psobject]]$Numbers
+## https://www.reddit.com/r/PowerShell/comments/8ecvbz/arrays_and_the_assignment_operator/dxud3q9?utm_source=share&utm_medium=web2x
 
-}
+<#
 
-#EndRegion Collections
+When you use ArrayList or Generic.List, internally .NET dynamically doubles the capacity 
+of your list at every 2n + 1 element. While this still means that the array is 
+regenerated at 2n - 1, the more elements you add, the better performance you will see.
+
+#>
