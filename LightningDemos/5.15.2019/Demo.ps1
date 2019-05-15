@@ -85,3 +85,5 @@ of your list at every 2n + 1 element. While this still means that the array is
 regenerated at 2n - 1, the more elements you add, the better performance you will see.
 
 #>
+
+#EndRegion Collections
