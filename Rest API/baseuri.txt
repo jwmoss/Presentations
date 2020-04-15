@@ -1,0 +1,1 @@
+http://maven.whatbox.ca:12533/api/v2?

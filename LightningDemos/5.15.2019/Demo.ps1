@@ -27,8 +27,8 @@ Get-ADUser -Filter 'givenName -eq "Jonathan" -and surName -eq "Moss" -and enable
 
 ## What I use
 $FilterArray = @(
-    "Jonathan",
-    "Moss",
+    "Mike",
+    "Kanakos",
     $True,
     "Admin"
 )
