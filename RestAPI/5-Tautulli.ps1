@@ -1,8 +1,8 @@
 ## Link to REST API documentation: https://github.com/Tautulli/Tautulli/blob/master/API.md
-$EndpointURL = Get-Content "$ENV:HOME/Presentations/Rest API/baseuri.txt"
+$EndpointURL = Get-Content "$ENV:HOME/Presentations/RestAPI/baseuri.txt"
 
 ## API Key for Tautulli
-$apikey = ((Import-Clixml "$ENV:HOME/Presentations/Rest API/tautulli_api.cred")).GetNetworkCredential().Password
+$apikey = ((Import-Clixml "$ENV:HOME/Presentations/RestAPI/tautulli_api.cred")).GetNetworkCredential().Password
 
 ## Command
 $command = "get_activity"

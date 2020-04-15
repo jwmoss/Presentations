@@ -13,7 +13,7 @@ $Endpoint = "/bots/post"
 $Text = "Also, I love you guys."
 
 ## The username and password (username being the bot_id and password being the token)
-$API = (Import-Clixml "$ENV:HOME/Presentations/Rest API/apitoken.cred")
+$API = (Import-Clixml "$ENV:HOME/Presentations/RestAPI/apitoken.cred")
 
 $Body = @{
     text = $Text
