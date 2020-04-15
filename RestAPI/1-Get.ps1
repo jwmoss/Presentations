@@ -16,7 +16,7 @@ Select-object -ExpandProperty US |
 Where-Object {$PSItem.date -eq (Get-Date -Format "yyyy-M-dd")}
 
 ## Let's get some kanye west jokes
-$KanyeWestJokes = Invoke-RestMethod -Method "Get" -URI "https://api.kanye.rest/"
+Invoke-RestMethod -Method "Get" -URI "https://api.kanye.rest/"
 
 ## Maybe lets get some data about the latest SpaceX launch
 $SpaceX = Invoke-RestMethod -Method "Get" -URI "https://api.spacexdata.com/v3/launches/latest"
