@@ -5,7 +5,7 @@ function Send-GMMessage {
         $Text,
 
         [PSCredential]
-        $API = (Import-Clixml "$ENV:HOME/Presentations/RestAPI/apitoken.cred")
+        $API = (Import-Clixml "$ENV:Temp\apitoken.cred")
     )
 
     $body = @{
