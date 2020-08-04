@@ -2,13 +2,13 @@ break
 
 ## If you know there isn't a Rest API available, use Invoke-WebRequest. It'll try and parse HTML for you
 ## which isn't really an API.
-Invoke-WebRequest
+Get-Help Invoke-WebRequest
 
 ## If you know there IS a Rest API available or you know a site publishses data using XML or JSON, use Invoke-RestMethod!
-Invoke-RestMethod
+Get-Help Invoke-RestMethod
 
 ## Let's get the public IP address
-$ip = Invoke-RestMethod -Method Get -Uri "https://ipinfo.io/json"
+#$ip = Invoke-RestMethod -Method Get -Uri "https://ipinfo.io/json"
 
 ## Let's find out more about the CoronaVirus from a JSON file
 $covid19 = Invoke-RestMethod -Method "Get" -URI "https://pomber.github.io/covid19/timeseries.json"
