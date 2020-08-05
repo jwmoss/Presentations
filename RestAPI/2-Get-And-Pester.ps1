@@ -2,7 +2,6 @@
 
 ## Check a website and check it's http status with Pester
 Describe "Invoke-RestMethod Responses" {
-    
     Context "Internet Connectivity" {
         It "Google works" {
             $online = Invoke-WebRequest -URI "https://google.com"

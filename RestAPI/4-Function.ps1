@@ -11,18 +11,18 @@ function Send-GMMessage {
     $body = @{
         text   = $Text
         bot_id = $API.UserName
+        token = $API.GetNetworkCredential().Password
     }
-        
-    $json = $body | ConvertTo-Json
-        
+
     $splat = @{
-        URI    = "https://api.groupme.com/v3/bots/post?Token={0}" -f $API.GetNetworkCredential().Password
+        URI    = "https://api.groupme.com/v3/bots/post"
         Method = "POST"
-        Body   = $json
+        Body   = $body
     }
         
     Invoke-RestMethod @splat
 
 }
 
-## Send-GMMessage -Text "This is being recorded lol"
+## Send-GMMessage -Text "This is being recorded lol" 
+$MARA = Invoke-RestMethod "https://query1.finance.yahoo.com/v7/finance/download/MARA?period1=1564972583&period2=1596594983&interval=1d&events=history" | ConvertFrom-Csv

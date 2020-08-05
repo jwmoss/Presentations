@@ -3,16 +3,16 @@
 ## link: https://docs.github.com/en/rest/overview/resources-in-the-rest-api#current-version
 
 ## Base URL
+
+$headers = @{
+    Accept = "application/vnd.github.v3+json"
+}
+
 $url = "https://api.github.com"
 
 ## get the gists from jwmoss
-$urlGists = @{
-    Headers = @{
-        Accept = "application/vnd.github.v3+json"
-    }
-    Uri = "$url/users/jwmoss/gists"
-}
-$gists = Invoke-RestMethod @urlGists
+$response = Invoke-RestMethod -Uri $Url -Headers $headers
+
 
 ## Get the PowerShell repositories' pull requests
 $ps_pulls = @{
